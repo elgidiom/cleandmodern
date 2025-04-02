@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} {{ site.title }}</title>
+    {% include head.html %}
+    <link rel="icon" href="{{ '/assets/img/favicons/favicon.ico' | relative_url }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        <nav>
+          <ul>
+
+            {% assign current_page = page.url | relative_url %}
+
+            <li>
+              <a href="{{ '/' | relative_url }}" class="{% if current_page == '/' or current_page == '/index.html' %}active{% endif %}">Inicio</a>
+            </li>
+            <li>
+              <a href="{{ '/about/' | relative_url }}" class="{% if current_page == '/about/' or current_page == '/about.html' %}active{% endif %}">Acerca</a>
+            </li>
+
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; {{ site.time | date: "%Y" }} - {{ site.title }}</p>
+      </div>
+    </footer>
+  </body>
+</html>

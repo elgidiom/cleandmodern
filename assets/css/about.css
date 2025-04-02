@@ -1,0 +1,76 @@
+/* --------------------------------------------------
+   ABOUT.CSS - ESTILOS PARA LA PÁGINA "ABOUT"
+   -------------------------------------------------- */
+
+/* Estructura general */
+.page-content {
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Encabezado */
+.page-content h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+}
+
+/* Párrafos */
+.page-content p {
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+/* Listas */
+.page-content ul,
+.page-content ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.page-content ul li,
+.page-content ol li {
+    margin-bottom: 0.5rem;
+}
+
+/* Enlaces */
+.page-content a {
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.page-content a:hover {
+    text-decoration: underline;
+}
+
+/* Separadores */
+.page-content hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 2rem 0;
+}
+
+/* Imágenes */
+.page-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 1.5rem auto;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .page-content {
+        padding: 1rem;
+    }
+}

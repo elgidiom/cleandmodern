@@ -1,0 +1,360 @@
+/* main.css */
+
+/* --------------------------------------------------
+   RESET / BASE
+   -------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  /* max-width: 800px; /\* Más estrecho para un look minimal *\/ */
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------
+   HEADER
+   -------------------------------------------------- */
+
+/* Estilo del enlace activo */
+nav ul li a {
+  border: 0;
+}
+
+
+nav ul li a.active {
+  background-color: #6c63ff20; /* Azul */
+  color: #fff; /* Texto blanco */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+/* Suavizar transición */
+nav ul li a {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  /* top: 0; */
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header .logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+nav {
+  flex: 1;
+  text-align: right;
+}
+
+nav ul {
+  display: inline-flex;
+  list-style: none;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #6c63ff;
+  /* border-bottom: 2px solid #6c63ff; */
+}
+
+.container h1 a,
+.container h1 a:visited,
+.container h1 a:hover,
+.container h1 a:active {
+  color: #0f172a;         /* Color deseado, en este caso un negro suave */
+  text-decoration: none; /* Sin subrayado */
+}
+
+
+/* Estilos dinámicos según la página */
+body.home header {
+  background-color: #f8f9fa; /* Color diferente para Home */
+}
+
+body.about header {
+  background-color: #e3f2fd; /* Color diferente para About */
+}
+
+/* --------------------------------------------------
+   MAIN
+   -------------------------------------------------- */
+main {
+  padding: 2rem 0;
+}
+
+/* --------------------------------------------------
+   INTRO / TITULAR CENTRAL
+   -------------------------------------------------- */
+
+.intro {
+  text-align: center;
+  max-width: 680px;
+  margin: 100px auto 90px;
+}
+
+.intro h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  line-height: 1.1; /* Ajusta el valor según lo que necesites */
+  color: #0f172a; /* Un poco más oscuro para destacar */
+}
+
+.intro p {
+  margin
+  color: #455366;
+  font-size: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1;
+}
+
+/* --------------------------------------------------
+   BLOG LIST / CARDS
+   -------------------------------------------------- */
+.blog-list {
+  margin-top: 2rem;
+}
+
+.posts-grid {
+  display: grid;
+  gap: 2rem; /* Espacio entre tarjetas */
+  grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+}
+
+/* 2 columnas a partir de ~768px */
+@media (min-width: 768px) {
+  .posts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3 columnas a partir de ~1024px */
+@media (min-width: 1024px) {
+  .posts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.post-card {
+  background-color: #fff;
+  border-radius: 8px;      /* Bordes redondeados */
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease;
+  /* Opcional: sombra suave */
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.08); */
+}
+
+.post-card:hover {
+  background-color: #f9f9ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+
+
+
+
+.post-image {
+  /* Fuerza la relación de aspecto 16:9 y redondea bordes */
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden; /* Oculta el sobrante para mantener el recorte */
+}
+
+.post-image img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;      /* Redondea bordes de la imagen */
+  object-fit: cover;       /* Ajusta la imagen sin deformarla */
+}
+
+.post-content {
+  padding: 1rem 0;
+}
+
+.post-content h3 {
+  font-size: 1.25rem;      /* Ajusta a tu gusto (1.25rem ~ 20px) */
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+/* Link del titulo */
+
+.post-content h3 a,
+.post-content h3 a:visited,
+.post-content h3 a:hover,
+.post-content h3 a:active {
+  color: #0f172a;         /* Color deseado, en este caso un negro suave */
+  text-decoration: none; /* Sin subrayado */
+}
+
+
+.post-date {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.75rem;
+}
+
+/* Excerpt más pequeño y gris */
+
+.post-excerpt {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+/* Enlace "Leer más" */
+
+.read-more {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+}
+/* --------------------------------------------------
+   SINGLE POST
+   -------------------------------------------------- */
+.single-post {
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+}
+
+.single-post h1 {
+  margin-bottom: 0.5rem;
+}
+
+.post-featured-image img {
+  margin-bottom: 1rem;
+}
+
+.post-date {
+  margin-bottom: 1rem;
+}
+
+/* Para el contenido */
+.post-content {
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------
+   PAGE CONTENT
+   -------------------------------------------------- */
+.page-content {
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+}
+
+/* --------------------------------------------------
+   FOOTER
+   -------------------------------------------------- */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  border: none; /* Quita línea separadora */
+}
+
+footer p {
+  color: #666;
+  margin: 0;
+}
+
+/*-------------------------------------------------
+CATEGORIAS
+ --------------------------------------------------*/
+
+.post-categories {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.category-tag {
+  display: inline-block;
+  background-color: #ede9fe; /* Lila clarito */
+  color: #6c63ff; /* Morado */
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  margin-right: 0.5rem;
+  border-radius: 999px; /* Badge redondito */
+  text-transform: capitalize;
+}
+
+/*-------------------------------------------------
+PAGINATION
+ --------------------------------------------------*/
+
+.pagination-button {
+  display: inline-block;
+  margin: 0 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6c63ff;
+  background-color: #f3f4f6;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.pagination-button:hover {
+  background-color: #ddd6fe;
+}
+
+.pagination-button.current {
+  background-color: #6c63ff;
+  color: white;
+}

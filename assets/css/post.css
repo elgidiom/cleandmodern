@@ -1,0 +1,180 @@
+/* --------------------------------------------------
+   POST.CSS - ESTILOS ESPECÍFICOS PARA LOS POSTS
+   -------------------------------------------------- */
+
+/* --------------------------------------------------
+   1. ESTRUCTURA Y CONTENEDOR DEL POST
+   -------------------------------------------------- */
+.single-post {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+}
+
+/* Ajuste de contenido dentro del post */
+.post-content {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  padding: 2rem 0;
+}
+
+/* --------------------------------------------------
+   2. TIPOGRAFÍA Y CONTENIDO
+   -------------------------------------------------- */
+
+/* Títulos */
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  color: #111;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-content h1 {
+  font-size: 2.2rem;
+}
+
+.post-content h2 {
+  font-size: 1.8rem;
+}
+
+.post-content h3 {
+  font-size: 1.5rem;
+}
+
+/* Párrafos */
+.post-content p {
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+/* Listas */
+.post-content ul,
+.post-content ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.post-content ul li,
+.post-content ol li {
+  margin-bottom: 0.5rem;
+}
+
+/* Citas */
+.post-content blockquote {
+  border-left: 4px solid #6c63ff;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #666;
+  margin: 1.5rem 0;
+}
+
+/* Enlaces */
+.post-content a {
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.post-content a:hover {
+  text-decoration: underline;
+}
+
+/* Código */
+.post-content pre {
+  background: #f4f4f4;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.post-content code {
+  font-family: 'Courier New', Courier, monospace;
+  background: #f4f4f4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------
+   3. IMÁGENES Y ELEMENTOS MULTIMEDIA
+   -------------------------------------------------- */
+
+/* Imágenes dentro del post */
+.post-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 500px; /* Límite de altura para imágenes grandes */
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  margin: 1.5rem auto; /* Centradas automáticamente */
+}
+
+/* Imagen destacada */
+.post-featured-image {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem auto;
+  max-width: 100%;
+}
+
+.post-featured-image img {
+  border-radius: 12px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); */
+  max-width: 100%;
+  max-height: 500px; /* Altura máxima para mantener proporciones */
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------
+   4. ELEMENTOS DESTACADOS
+   -------------------------------------------------- */
+
+/* Separadores */
+.post-content hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2rem 0;
+}
+
+/* Título principal del post */
+.single-post h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #222;
+}
+
+/* Fecha del post */
+.single-post .post-date {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* --------------------------------------------------
+   5. RESPONSIVE (ADAPTACIÓN A PANTALLAS PEQUEÑAS)
+   -------------------------------------------------- */
+@media (max-width: 768px) {
+  .single-post {
+    padding: 1rem;
+  }
+
+  .post-content {
+    padding: 1rem;
+  }
+
+  .post-featured-image img {
+    border-radius: 8px;
+  }
+}
