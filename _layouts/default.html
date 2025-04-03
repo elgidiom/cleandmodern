@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <title>{{ page.title }} {{ site.title }}</title>
-    {% include head.html %}
-    <link rel="icon" href="{{ '/assets/img/favicons/favicon.ico' | relative_url }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
 
-  <body>
+  <title>{{ page.title }} {{ site.title }}</title>
+  {% include head.html %}
+
+  <link rel="icon" href="{{ '/assets/img/favicons/favicon.ico' | relative_url }}" type="image/x-icon">
+
+  <!-- Cache busting con timestamp -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
+</head>
+
+<body>
 
     <header>
       <div class="container">
