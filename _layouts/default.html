@@ -69,11 +69,11 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.getElementById('dark-mode-toggle');
-      const body   = document.body;
+      const root   = document.documentElement; // <html>
 
       // ---  Helper: refresca el icono según el modo actual  ---
       const setIcon = () => {
-        const isDark = body.classList.contains('dark');
+        const isDark = root.classList.contains('dark');
         toggle.innerHTML = isDark
           ? '<i data-feather="moon"></i>'
           : '<i data-feather="sun"></i>';
@@ -85,13 +85,13 @@
                           (!localStorage.getItem('theme') &&
                            window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-      if (prefersDark) body.classList.add('dark');
+      if (prefersDark) root.classList.add('dark');
       setIcon();
 
       // ---  Toggle al hacer clic  ---
       toggle.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+        root.classList.toggle('dark');
+        localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
         setIcon();
       });
     });
