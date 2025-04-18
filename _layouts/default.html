@@ -80,12 +80,14 @@
         feather.replace();
       };
 
-      // ---  Estado inicial (localStorage o preferencia SO) ---
-      const prefersDark = localStorage.getItem('theme') === 'dark' ||
-                          (!localStorage.getItem('theme') &&
-                           window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // ---  Estado inicial (por defecto OSCURO, salvo que el usuario haya elegido "light") ---
+      const storedTheme = localStorage.getItem('theme');
 
-      if (prefersDark) root.classList.add('dark');
+      if (storedTheme === 'light') {
+        root.classList.remove('dark');
+      } else {
+        root.classList.add('dark'); // valor por defecto
+      }
       setIcon();
 
       // ---  Toggle al hacer clic  ---

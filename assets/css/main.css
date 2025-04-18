@@ -16,20 +16,6 @@
   --shadow: rgba(0,0,0,0.08);
 }
 
-/* Modo Oscuro (preferencia automática del sistema) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --primary-color: #bb86fc;
-    --accent-color: #ffffff;
-    --card-bg: #1e1e1e;
-    --card-hover-bg: #2a2a2a;
-    --muted-color: #cccccc;
-    --link-hover-bg: rgba(187,134,252,0.15);
-    --shadow: rgba(0,0,0,0.2);
-  }
-}
 
 /* Modo Oscuro Forzado Manualmente (Clase .dark) */
 .dark {
