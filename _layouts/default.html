@@ -66,7 +66,34 @@
   </script>
 
   <!-- Dark Mode y Sidebar Móvil -->
-  <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('dark-mode-toggle');
+      const body = document.body;
+      const icon = toggle.querySelector('i');
+
+      // Inicializar el modo según la preferencia del usuario
+      if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark');
+        icon.setAttribute('data-feather', 'moon');
+      } else {
+        icon.setAttribute('data-feather', 'sun');
+      }
+      feather.replace();
+
+      toggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        if (body.classList.contains('dark')) {
+          icon.setAttribute('data-feather', 'moon');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          icon.setAttribute('data-feather', 'sun');
+          localStorage.setItem('theme', 'light');
+        }
+        feather.replace();
+      });
+    });
+  </script>
 
 </body>
 </html>
