@@ -69,28 +69,30 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.getElementById('dark-mode-toggle');
-      const body = document.body;
-      const icon = toggle.querySelector('i');
+      const body   = document.body;
 
-      // Inicializar el modo según la preferencia del usuario
-      if (localStorage.getItem('theme') === 'dark') {
-        body.classList.add('dark');
-        icon.setAttribute('data-feather', 'moon');
-      } else {
-        icon.setAttribute('data-feather', 'sun');
-      }
-      feather.replace();
+      // ---  Helper: refresca el icono según el modo actual  ---
+      const setIcon = () => {
+        const isDark = body.classList.contains('dark');
+        toggle.innerHTML = isDark
+          ? '<i data-feather="moon"></i>'
+          : '<i data-feather="sun"></i>';
+        feather.replace();
+      };
 
+      // ---  Estado inicial (localStorage o preferencia SO) ---
+      const prefersDark = localStorage.getItem('theme') === 'dark' ||
+                          (!localStorage.getItem('theme') &&
+                           window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+      if (prefersDark) body.classList.add('dark');
+      setIcon();
+
+      // ---  Toggle al hacer clic  ---
       toggle.addEventListener('click', () => {
         body.classList.toggle('dark');
-        if (body.classList.contains('dark')) {
-          icon.setAttribute('data-feather', 'moon');
-          localStorage.setItem('theme', 'dark');
-        } else {
-          icon.setAttribute('data-feather', 'sun');
-          localStorage.setItem('theme', 'light');
-        }
-        feather.replace();
+        localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+        setIcon();
       });
     });
   </script>
