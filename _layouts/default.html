@@ -1,62 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  {% include head.html %}
 
-    <title>{{ page.title }} {{ site.title }}</title>
-    {% include head.html %}
+  <link rel="icon" href="{{ '/assets/img/favicons/favicon.ico' | relative_url }}" type="image/x-icon">
 
-    <link rel="icon" href="{{ '/assets/img/favicons/favicon.ico' | relative_url }}" type="image/x-icon">
+  <!-- Cache busting con timestamp -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
 
-    <!-- Cache busting con timestamp -->
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
-  </head>
+  <!-- Feather Icons CDN -->
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
 
-  <body>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
 
-    <header>
-      <div class="container">
-        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-        <nav>
-          <ul>
+      <!-- Botón toggle modo oscuro -->
+      <button id="dark-mode-toggle" aria-label="Alternar modo oscuro/claro">
+        <i data-feather="sun"></i>
+      </button>
 
-            {% assign current_page = page.url | relative_url %}
+      <!-- Botón menú móvil -->
+      <button id="menu-toggle" aria-label="Abrir menú">
+        <i data-feather="menu"></i>
+      </button>
 
-            <li>
-              <a href="{{ '/' | relative_url }}" class="{% if current_page == '/' or current_page == '/index.html' %}active{% endif %}">Inicio</a>
-            </li>
-            <li>
-              <a href="{{ '/about/' | relative_url }}" class="{% if current_page == '/about/' or current_page == '/about.html' %}active{% endif %}">Acerca</a>
-            </li>
+      <nav id="nav-menu">
+        <ul>
+          {% assign current_page = page.url | relative_url %}
+          <li>
+            <a href="{{ '/' | relative_url }}" class="{% if current_page == '/' or current_page == '/index.html' %}active{% endif %}">Inicio</a>
+          </li>
+          <li>
+            <a href="{{ '/about/' | relative_url }}" class="{% if current_page == '/about/' or current_page == '/about.html' %}active{% endif %}">Acerca</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    {{ content }}
+  </main>
 
-          </ul>
-        </nav>
-      </div>
-    </header>
+  <footer>
+    <div class="container">
+      <p>&copy; {{ site.time | date: "%Y" }} - {{ site.title }}</p>
+    </div>
+  </footer>
 
-    <main>
-      {{ content }}
-    </main>
+  <!-- Eliminar Service Worker antiguo -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+          registration.unregister();
+        }
+        console.log("Service Workers eliminados.");
+      });
+    }
+  </script>
 
-    <footer>
-      <div class="container">
-        <p>&copy; {{ site.time | date: "%Y" }} - {{ site.title }}</p>
-      </div>
-    </footer>
-    <script>
-     if ('serviceWorker' in navigator) {
-       navigator.serviceWorker.getRegistrations().then(function(registrations) {
-         for(let registration of registrations) {
-           registration.unregister();
-         }
-         console.log("Service Workers eliminados.");
-       });
-     }
-    </script>
+  <!-- Dark Mode y Sidebar Móvil -->
+  <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
 
-  </body>
+</body>
 </html>
