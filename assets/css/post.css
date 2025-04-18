@@ -9,7 +9,7 @@
   max-width: 750px;
   margin: 0 auto;
   padding: 2rem;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 10px;
 }
 
@@ -19,7 +19,7 @@
   margin: 0 auto;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #333;
+  color: var(--text-color);
   padding: 2rem 0;
 }
 
@@ -31,7 +31,7 @@
 .post-content h1,
 .post-content h2,
 .post-content h3 {
-  color: #111;
+  color: var(--accent-color);
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -51,7 +51,7 @@
 /* Párrafos */
 .post-content p {
   margin-bottom: 1.5rem;
-  color: #444;
+  color: var(--text-color);
 }
 
 /* Listas */
@@ -68,16 +68,16 @@
 
 /* Citas */
 .post-content blockquote {
-  border-left: 4px solid #6c63ff;
+  border-left: 4px solid var(--primary-color);
   padding-left: 1rem;
   font-style: italic;
-  color: #666;
+  color: var(--muted-color);
   margin: 1.5rem 0;
 }
 
 /* Enlaces */
 .post-content a {
-  color: #6c63ff;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
 }
@@ -88,7 +88,7 @@
 
 /* Código */
 .post-content pre {
-  background: #f4f4f4;
+  background: var(--card-hover-bg);
   padding: 1rem;
   border-radius: 8px;
   overflow-x: auto;
@@ -96,7 +96,7 @@
 
 .post-content code {
   font-family: 'Courier New', Courier, monospace;
-  background: #f4f4f4;
+  background: var(--card-hover-bg);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   font-size: 0.95rem;
@@ -144,7 +144,7 @@
 /* Separadores */
 .post-content hr {
   border: none;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--muted-color);
   margin: 2rem 0;
 }
 
@@ -152,14 +152,14 @@
 .single-post h1 {
   text-align: center;
   font-size: 2rem;
-  color: #222;
+  color: var(--accent-color);
 }
 
 /* Fecha del post */
 .single-post .post-date {
   text-align: center;
   font-size: 1rem;
-  color: #666;
+  color: var(--muted-color);
 }
 
 /* --------------------------------------------------

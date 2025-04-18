@@ -7,25 +7,25 @@
     max-width: 750px;
     margin: 50px auto;
     padding: 2rem;
-    background: #fff;
+    background: var(--card-bg);
     border-radius: 10px;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #333;
+    color: var(--text-color);
 }
 
 /* Encabezado */
 .page-content h1 {
     text-align: center;
     font-size: 2rem;
-    color: #222;
+    color: var(--accent-color);
     margin-bottom: 1.5rem;
 }
 
 /* Párrafos */
 .page-content p {
     margin-bottom: 1.5rem;
-    color: #444;
+    color: var(--text-color);
 }
 
 /* Listas */
@@ -42,7 +42,7 @@
 
 /* Enlaces */
 .page-content a {
-    color: #6c63ff;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
 }
@@ -54,7 +54,7 @@
 /* Separadores */
 .page-content hr {
     border: none;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--muted-color);
     margin: 2rem 0;
 }
 
