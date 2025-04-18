@@ -9,7 +9,7 @@
   max-width: 750px;
   margin: 0 auto;
   padding: 2rem;
-  background: var(--card-bg);
+  /* background: var(--card-bg); */
   border-radius: 10px;
 }
 
