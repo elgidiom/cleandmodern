@@ -8,12 +8,10 @@ layout: default
 
 <article class="page-content container">
     <h1>{{ page.title }}</h1>
-    {% if page.title == "Acerca de" or page.title == "Acerca" %}
-    {% if site.profile_img %}
+    {% if page.url contains '/about' and site.profile_img %}
       <div style="text-align: center; margin-bottom: 20px;">
         <img src="{{ site.profile_img | relative_url }}" alt="{{ site.title }}" style="border-radius: 50%; width: 120px; height: 120px;">
       </div>
-    {% endif %}
     {% endif %}
     {{ content }}
 </article>
