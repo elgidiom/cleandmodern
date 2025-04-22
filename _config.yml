@@ -23,7 +23,7 @@ description: "Sueno a que yo mismo llamo la nostalgia,
 sueno a que yo mismo atraigo la distancia."
 subtitle: "Inconstante blog de pensamientos"
 
-profile_img: "images/profile.jpg"
+profile_img: "assets/images/profile.jpg"
 url: "http://localhost:4000"
 baseurl: ""
 markdown: kramdown
