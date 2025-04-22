@@ -37,7 +37,7 @@
 <body>
   <header>
     <div class="container">
-      <h1><a href="{{ '/' | relative_url }}">
+      <h1><a href="{{ '/' | relative_url }}" style="display: flex; align-items: center;">
         {% if site.profile_img %}<img src="{{ site.profile_img | relative_url }}" alt="{{ site.title }}" style="border-radius: 50%; width: 40px; height: 40px; vertical-align: middle; margin-right: 10px;"> {{ site.title }}{% else %}{{ site.title }}{% endif %}
       </a></h1>
 
