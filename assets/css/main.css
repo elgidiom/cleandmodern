@@ -91,6 +91,7 @@ header .container {
 
 nav ul {
   display: flex;
+  align-items: center; /* Asegura que todos los <li> se alineen verticalmente */
   list-style: none;
   gap: 1.5rem;
 }
@@ -128,13 +129,15 @@ nav ul li a.active {
 /* Estilos para el botón de dark mode cuando está en la navegación */
 nav ul li.dark-mode-toggle-li {
   /* Asegura que el <li> no tenga estilos de link por defecto si los hubiera */
-  line-height: 1; /* Para alinear mejor el botón verticalmente si es necesario */
+  /* line-height: 1; <- Eliminado para permitir que flexbox maneje la alineación */
 }
 
 nav ul li.dark-mode-toggle-li #dark-mode-toggle {
   padding: 0.5rem; /* Padding para el área de clic en escritorio */
   margin-left: 0.5rem; /* Espacio respecto a otros links en escritorio */
-  vertical-align: middle; /* Mejor alineación con los links de texto */
+  /* vertical-align: middle; <- Eliminado, flexbox en el padre (ul) y en este botón lo manejan */
+  display: flex; /* Para centrar el icono dentro del botón */
+  align-items: center; /* Para centrar el icono dentro del botón */
 }
 
 
