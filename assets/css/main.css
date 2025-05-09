@@ -69,12 +69,12 @@ header {
   background-color: var(--header-bg-color); /* Usar nueva variable para transparencia */
   box-shadow: 0 2px 4px var(--shadow);
   z-index: 1000;
-  transition: background-color var(--transition);
-  /* Opcional: Efecto "frosted glass" si el contenido debajo es visible */
-  /* @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+  transition: background-color var(--transition), backdrop-filter var(--transition);
+  /* Efecto "frosted glass" si el contenido debajo es visible */
+  @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-  } */
+  }
 }
 
 header .container {
@@ -145,26 +145,37 @@ nav ul li.dark-mode-toggle-li #dark-mode-toggle {
     top: 0; left: -100%;
     width: 70%; height: 100vh;
     background-color: var(--card-bg);
-    padding-top: 4rem;
+    padding-top: 4rem; /* Espacio para el header que es fixed */
+    padding-bottom: 2rem; /* Espacio en la parte inferior del menú */
     transition: left var(--transition);
     box-shadow: 2px 0 12px var(--shadow);
+    display: flex; /* Para permitir que el ul ocupe toda la altura */
+    flex-direction: column; /* El nav-menu es el contenedor flex principal */
   }
   nav#nav-menu.open { left: 0; }
-  nav ul { flex-direction: column; padding-left: 2rem; }
+  
+  nav#nav-menu ul { 
+    flex-direction: column; 
+    padding-left: 2rem; 
+    flex-grow: 1; /* Permite que el ul crezca y empuje el toggle hacia abajo */
+    display: flex; /* Para que margin-top: auto en el li funcione */
+  }
 
   /* Estilos para el botón de dark mode dentro del menú móvil */
   nav#nav-menu ul li.dark-mode-toggle-li {
-    margin-top: 1rem; /* Espacio arriba del botón */
-    padding: 0; /* Resetear padding del li si es necesario */
-    order: 10; /* Opcional: Moverlo al final si hay otros elementos añadidos dinámicamente */
+    margin-top: auto; /* Empuja este elemento al final del contenedor flex (ul) */
+    padding: 1rem 0; /* Espacio vertical alrededor del botón */
+    display: flex; /* Para centrar el botón dentro del li */
+    justify-content: center; /* Centra el botón horizontalmente */
   }
+
   nav#nav-menu ul li.dark-mode-toggle-li #dark-mode-toggle {
-    margin-left: 0; /* Sin margen lateral en móvil */
-    padding: 0.5rem 0; /* Padding vertical, el texto/icono se alinea por el padding-left del ul */
-    display: flex; /* Para controlar alineación del contenido del botón */
+    margin-left: 0; /* Resetear margen */
+    padding: 0.5rem 1rem; /* Padding para el área de clic del botón */
+    display: flex; 
     align-items: center;
-    width: 100%; /* Ocupar el ancho disponible en el menú */
-    justify-content: flex-start; /* Alinear icono a la izquierda */
+    /* width: auto; El ancho será determinado por su contenido y padding */
+    justify-content: center; 
   }
 }
 
