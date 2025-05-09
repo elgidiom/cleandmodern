@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.getElementById('nav-menu');
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+      navMenu.classList.toggle('open');
     });
   }
 });
