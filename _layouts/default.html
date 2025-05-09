@@ -32,11 +32,6 @@
         {% if site.profile_img %}<img src="{{ site.profile_img | relative_url }}" alt="{{ site.title }}" style="border-radius: 50%; width: 40px; height: 40px; vertical-align: middle; margin-right: 10px;"> {{ site.title }}{% else %}{{ site.title }}{% endif %}
       </a></h1>
 
-      <!-- Botón toggle modo oscuro -->
-      <button id="dark-mode-toggle" aria-label="Alternar modo oscuro/claro">
-        <i data-feather="sun"></i>
-      </button>
-
       <!-- Botón menú móvil -->
       <button id="menu-toggle" aria-label="Abrir menú">
         <i data-feather="menu"></i>
@@ -50,6 +45,12 @@
           </li>
           <li>
             <a href="{{ '/about/' | relative_url }}" class="{% if current_page == '/about/' or current_page == '/about.html' %}active{% endif %}">Acerca</a>
+          </li>
+          <li class="dark-mode-toggle-li">
+            <button id="dark-mode-toggle" aria-label="Alternar modo oscuro/claro">
+              <!-- El icono se establece mediante JavaScript (sun/moon) -->
+              <i data-feather="sun"></i>
+            </button>
           </li>
         </ul>
       </nav>

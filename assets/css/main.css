@@ -3,11 +3,12 @@
   color-scheme: light dark; /* Esto activa soporte nativo de dark/light en el navegador */
 
   /* Modo Claro (default) */
+  --header-bg-color: rgba(255, 255, 255, 0.85); /* Header con transparencia */
   --bg-color: #ffffff;
   --text-color: #333333;
   --primary-color: #6c63ff;
   --accent-color: #0f172a;
-  --card-bg: #ffffff;
+  --card-bg: #ffffff; /* Mantenido para otros elementos como post-cards */
   --card-hover-bg: #f9f9ff;
   --muted-color: #555555;
   --border-radius: 8px;
@@ -19,11 +20,12 @@
 
 /* Modo Oscuro Forzado Manualmente (Clase .dark) */
 .dark {
+  --header-bg-color: rgba(30, 30, 30, 0.85); /* Header oscuro con transparencia (#1e1e1e con alfa) */
   --bg-color: #121212;
   --text-color: #e0e0e0;
   --primary-color: #bb86fc;
   --accent-color: #ffffff;
-  --card-bg: #1e1e1e;
+  --card-bg: #1e1e1e; /* Mantenido para otros elementos como post-cards */
   --card-hover-bg: #2a2a2a;
   --muted-color: #cccccc;
   --link-hover-bg: rgba(187,134,252,0.15);
@@ -64,10 +66,15 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: var(--card-bg);
+  background-color: var(--header-bg-color); /* Usar nueva variable para transparencia */
   box-shadow: 0 2px 4px var(--shadow);
   z-index: 1000;
   transition: background-color var(--transition);
+  /* Opcional: Efecto "frosted glass" si el contenido debajo es visible */
+  /* @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  } */
 }
 
 header .container {
@@ -114,9 +121,22 @@ nav ul li a.active {
 }
 
 #menu-toggle { display: none; font-size: 1.8rem; }
-#dark-mode-toggle { font-size: 1.5rem; }
+#dark-mode-toggle { font-size: 1.5rem; } /* Estilo base del botón */
 
 #dark-mode-toggle:hover { transform: scale(1.1); }
+
+/* Estilos para el botón de dark mode cuando está en la navegación */
+nav ul li.dark-mode-toggle-li {
+  /* Asegura que el <li> no tenga estilos de link por defecto si los hubiera */
+  line-height: 1; /* Para alinear mejor el botón verticalmente si es necesario */
+}
+
+nav ul li.dark-mode-toggle-li #dark-mode-toggle {
+  padding: 0.5rem; /* Padding para el área de clic en escritorio */
+  margin-left: 0.5rem; /* Espacio respecto a otros links en escritorio */
+  vertical-align: middle; /* Mejor alineación con los links de texto */
+}
+
 
 @media (max-width: 768px) {
   #menu-toggle { display: block; }
@@ -131,6 +151,21 @@ nav ul li a.active {
   }
   nav#nav-menu.open { left: 0; }
   nav ul { flex-direction: column; padding-left: 2rem; }
+
+  /* Estilos para el botón de dark mode dentro del menú móvil */
+  nav#nav-menu ul li.dark-mode-toggle-li {
+    margin-top: 1rem; /* Espacio arriba del botón */
+    padding: 0; /* Resetear padding del li si es necesario */
+    order: 10; /* Opcional: Moverlo al final si hay otros elementos añadidos dinámicamente */
+  }
+  nav#nav-menu ul li.dark-mode-toggle-li #dark-mode-toggle {
+    margin-left: 0; /* Sin margen lateral en móvil */
+    padding: 0.5rem 0; /* Padding vertical, el texto/icono se alinea por el padding-left del ul */
+    display: flex; /* Para controlar alineación del contenido del botón */
+    align-items: center;
+    width: 100%; /* Ocupar el ancho disponible en el menú */
+    justify-content: flex-start; /* Alinear icono a la izquierda */
+  }
 }
 
 /* --------------------------------------------------
