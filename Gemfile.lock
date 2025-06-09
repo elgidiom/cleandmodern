@@ -10,9 +10,13 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
-    ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-musl)
     forwardable-extended (2.6.0)
-    google-protobuf (4.27.2-x86_64-linux)
+    google-protobuf (4.31.0-x86_64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.0-x86_64-linux-musl)
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
@@ -66,6 +70,9 @@ GEM
       strscan
     rouge (4.3.0)
     safe_yaml (1.0.5)
+    sass-embedded (1.77.8)
+      google-protobuf (~> 4.26)
+      rake (>= 13)
     sass-embedded (1.77.8-x86_64-linux-gnu)
       google-protobuf (~> 4.26)
     strscan (3.1.0)
@@ -76,6 +83,7 @@ GEM
 
 PLATFORMS
   x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   http_parser.rb (~> 0.6.0)

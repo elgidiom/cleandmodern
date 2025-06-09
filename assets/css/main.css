@@ -296,3 +296,15 @@ footer {
   stroke-width: 2;
   color: var(--text-color);
 }
+
+/* Ecuations Support */
+mjx-container {
+  display: block;
+  overflow-x: auto;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+mjx-container svg {
+  margin: 0 auto;
+}
