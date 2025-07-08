@@ -24,7 +24,7 @@ subtitle: "Add a subtitle for your description."
 
 profile_img: "assets/images/profile.jpg"
 url: "http://localhost:4000"
-baseurl: ""
+baseurl: "/cleandmodern"
 markdown: kramdown
 plugins:
   - jekyll-feed
