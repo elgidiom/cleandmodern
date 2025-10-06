@@ -180,3 +180,76 @@
     border-radius: 8px;
   }
 }
+
+/* --------------------------------------------------
+   6. COMPARTIR (Share Bar)
+   -------------------------------------------------- */
+.post-share {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--link-hover-bg);
+}
+
+.post-share .label {
+  color: var(--muted-color);
+  margin-right: 0.25rem;
+}
+
+.post-share .share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--link-hover-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+  position: relative;
+  overflow: visible;
+}
+
+.post-share .share-btn:hover {
+  background: var(--link-hover-bg);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.post-share .share-btn svg,
+.post-share .share-btn i {
+  width: 20px;
+  height: 20px;
+}
+
+/* Toast suave "copied" sobre el botón de copiar */
+.copy-toast {
+  position: absolute;
+  bottom: 44px; /* justo encima del botón (40px + margen) */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--link-hover-bg);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  animation: toast-pop 1.5s ease forwards;
+}
+
+@keyframes toast-pop {
+  0% { opacity: 0; transform: translate(-50%, 6px) scale(0.98); }
+  15% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -4px) scale(0.98); }
+}
