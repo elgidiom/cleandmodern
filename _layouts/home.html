@@ -12,7 +12,9 @@ paginate: true
 
 <section class="blog-list container" style="margin-top: 3rem;">
   <div class="posts-grid">
-    {% for post in paginator.posts %}
+    {% assign posts = paginator.posts %}
+    {% if posts == nil %}{% assign posts = site.posts %}{% endif %}
+    {% for post in posts %}
       <article class="post-card">
         {% if post.image %}
           <div class="post-image">
@@ -43,27 +45,29 @@ paginate: true
   <!-- PAGINATOR -->
 
   <div class="paginator" style="text-align: center; margin-top: 2rem;">
-  {% if paginator.previous_page %}
-    {% if paginator.previous_page == 1 %}
-      <a href="{{ site.baseurl }}/" class="pagination-button">← Anterior</a>
-    {% else %}
-      <a href="{{ site.baseurl }}/page/{{ paginator.previous_page }}" class="pagination-button">← Anterior</a>
+  {% if paginator %}
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+        <a href="{{ site.baseurl }}/" class="pagination-button">← Anterior</a>
+      {% else %}
+        <a href="{{ site.baseurl }}/page/{{ paginator.previous_page }}" class="pagination-button">← Anterior</a>
+      {% endif %}
+    {% endif %}
+
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <span class="pagination-button current">{{ page }}</span>
+      {% elsif page == 1 %}
+        <a href="{{ site.baseurl }}/" class="pagination-button">{{ page }}</a>
+      {% else %}
+        <a href="{{ site.baseurl }}/page/{{ page }}" class="pagination-button">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+        <a href="{{ site.baseurl }}/page/{{ paginator.next_page }}" class="pagination-button">Siguiente →</a>
     {% endif %}
   {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <span class="pagination-button current">{{ page }}</span>
-    {% elsif page == 1 %}
-      <a href="{{ site.baseurl }}/" class="pagination-button">{{ page }}</a>
-    {% else %}
-      <a href="{{ site.baseurl }}/page/{{ page }}" class="pagination-button">{{ page }}</a>
-    {% endif %}
-  {% endfor %}
-
-  {% if paginator.next_page %}
-      <a href="{{ site.baseurl }}/page/{{ paginator.next_page }}" class="pagination-button">Siguiente →</a>
-      {% endif %}
   </div>
 
 </section>
